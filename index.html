@@ -294,14 +294,41 @@ footer .copy{margin-top:1.6rem;font-size:.64rem;letter-spacing:.06em;color:#5a54
 @media(max-width:640px){
   :root{--gut:clamp(1.25rem,5.5vw,1.75rem)}
   html,body{max-width:100%;overflow-x:hidden}
-  .wrap{
+  .wrap,
+  section:not(#hero) .wrap{
     max-width:100%;
     padding-left:var(--gut);
-    padding-right:calc(var(--gut) + .45rem);
+    padding-right:var(--gut);
   }
-  section:not(#hero) .wrap{padding-right:calc(var(--gut) + .65rem)}
-  nav .navin{padding-left:var(--gut);padding-right:calc(var(--gut) + .45rem)}
-  #mobilemenu{padding-left:var(--gut);padding-right:calc(var(--gut) + .65rem)}
+  nav .navin,
+  #mobilemenu{
+    padding-left:var(--gut);
+    padding-right:var(--gut);
+  }
+  .sectnum{
+    left:var(--gut);
+    right:auto;
+    max-width:calc(100vw - (var(--gut) * 2));
+    white-space:normal;
+    overflow-wrap:anywhere;
+    letter-spacing:.14em;
+  }
+  #gate form{
+    width:min(330px,calc(100vw - 2.5rem));
+    max-width:calc(100vw - 2.5rem);
+  }
+  #gate .gaterow{
+    flex-direction:column;
+    width:100%;
+  }
+  #gate .gaterow #gatePass{
+    width:100%;
+    flex:0 0 auto;
+  }
+  #gate .gaterow button{
+    width:100%;
+    justify-content:center;
+  }
   .cols,.split,.c2,.c3,.c4,.statline,.frrow,.specs,.proofgrid,.terms,.svc,.teamrow,.advrow,.stackgrid,.tl{
     width:100%;
     max-width:100%;
@@ -315,13 +342,21 @@ footer .copy{margin-top:1.6rem;font-size:.64rem;letter-spacing:.06em;color:#5a54
   .btnrow{max-width:100%}
   .btn{max-width:100%}
   #hero canvas{width:100%;right:-10%;opacity:.38}
-  #hero .metaline{padding-right:.25rem;gap:1.45rem}
+  #hero .metaline{gap:1.45rem}
 }
 
 @media(max-width:430px){
-  :root{--gut:1.15rem}
-  .wrap{padding-right:1.65rem}
-  section:not(#hero) .wrap{padding-right:1.85rem}
+  :root{--gut:1.25rem}
+  .wrap,
+  section:not(#hero) .wrap,
+  nav .navin,
+  #mobilemenu{
+    padding-left:var(--gut);
+    padding-right:var(--gut);
+  }
+  .sectnum{
+    max-width:calc(100vw - (var(--gut) * 2));
+  }
   .statline{grid-template-columns:1fr}
   .advrow{grid-template-columns:1fr}
   .btn{width:100%;justify-content:center}
